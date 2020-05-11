@@ -1,4 +1,4 @@
-# tutoring
+# Tutoring
 
 A new Flutter project.
 
