@@ -29,11 +29,9 @@ Future<String> newUser() async {
       'LSATScore': 160
     }),
     headers: {'Content-Type': 'application/json'});
-    print("response statuscode " + (response.statusCode).toString());
+    // print("response statuscode " + (response.statusCode).toString());
     if (response.statusCode == 200) {
-        String respID = json.decode(response.body);
-        print(respID);
-        return respID;
+        return response.body;
     } else {
       throw Exception("There is an error.");
     }

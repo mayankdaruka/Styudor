@@ -50,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     _users = getUsers();
+    // print(_users);
   }
 
   void _incrementCounter() {
@@ -71,6 +72,10 @@ class _MyHomePageState extends State<MyHomePage> {
     //   );
     // }
   }
+
+  // List<Text> listUsers() {
+  //   for(var)
+  // }
 
   @override
   Widget build(BuildContext context) {
