@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'login_page.dart';
+import './models/user.dart';
+import 'api.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginPage(),
+      home: MyHomePage(title: "This is lit."),
     );
   }
 }
@@ -43,6 +45,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  Future<List<UserModel>> _users;
+
+  void initState() {
+    super.initState();
+    _users = getUsers();
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -53,15 +61,15 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
-    if (_counter == 4) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-            title: Text("Testing Alert"),
-            content: Text("You have pressed the button 4 times."),
-          )
-      );
-    }
+    // if (_counter == 4) {
+    //   showDialog(
+    //     context: context,
+    //     builder: (context) => AlertDialog(
+    //         title: Text("Testing Alert"),
+    //         content: Text("You have pressed the button 4 times."),
+    //       )
+    //   );
+    // }
   }
 
   @override
@@ -95,7 +103,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        // onPressed: _incrementCounter,
+        onPressed: () => newUser(),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
