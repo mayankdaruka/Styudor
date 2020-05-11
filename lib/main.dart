@@ -77,6 +77,13 @@ class _MyHomePageState extends State<MyHomePage> {
   //   for(var)
   // }
 
+  void manageNewUser() {
+    newUser();
+    setState(() {
+      _users = getUsers();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -107,10 +114,10 @@ class _MyHomePageState extends State<MyHomePage> {
       //     ],
       //   ),
       // ),
-      body: UserList(),
+      body: UserList(_users),
       floatingActionButton: FloatingActionButton(
         // onPressed: _incrementCounter,
-        onPressed: () => newUser(),
+        onPressed: () => manageNewUser(),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.

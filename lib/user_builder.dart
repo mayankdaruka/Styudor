@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:tutoring/models/user.dart';
 import 'api.dart';
 
+
 class UserList extends StatelessWidget {
-  final Future<List<UserModel>> _users = getUsers();
+  UserList(this._users);
+  Future<List<UserModel>> _users;
 
   @override
   Widget build(BuildContext context) {
