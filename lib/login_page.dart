@@ -1,13 +1,18 @@
 import 'dart:ui';
 
 import "package:flutter/material.dart";
+import "main.dart";
 
 const IP_ADDRESS = "10.0.2.2:3000";
 
 class LoginPage extends StatelessWidget {
 
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  // final TextEditingController _usernameController = TextEditingController();
+  // final TextEditingController _passwordController = TextEditingController();
+
+  void _handleLogin(BuildContext context) {
+    Navigator.pushNamed(context, AuthRoute);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +58,7 @@ class LoginPage extends StatelessWidget {
                           height: 45.0,
                           child: RaisedButton(
                             color: Colors.white,
-                            onPressed: () => {},
+                            onPressed: () => this._handleLogin(context),
                             child: Text("LOGIN", style: Theme.of(context).textTheme.headline3),
                             elevation: 2.0,
                             shape: RoundedRectangleBorder(

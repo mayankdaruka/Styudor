@@ -4,8 +4,9 @@ import './models/user.dart';
 import 'api.dart';
 import 'user_builder.dart';
 import 'style.dart';
+import 'authentication.dart';
 
-const LoginRoute = '/';
+const AuthRoute = '/auth';
 
 void main() {
   runApp(MyApp());
@@ -38,13 +39,12 @@ class MyApp extends StatelessWidget {
       final Map<String, dynamic> arguments = settings.arguments;
       Widget screen;
       switch(settings.name) {
-        case LoginRoute:
-          screen = LoginPage();
+        case AuthRoute:
+          screen = PhoneAuth();
           break;
         default:
           return null;
       }
-      screen = LoginPage();
       return MaterialPageRoute(builder: (BuildContext context) => screen);
     };
   }
