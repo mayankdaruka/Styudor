@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class PhoneAuth extends StatefulWidget {
   @override
@@ -6,6 +7,9 @@ class PhoneAuth extends StatefulWidget {
 }
 
 class _PhoneAuthState extends State<PhoneAuth> {
+  // var maskFormatter = new MaskTextInputFormatter(mask: '+# (###) ###-####', filter: { "#": RegExp(r'[0-9]') });
+  var maskFormatter = new MaskTextInputFormatter(mask: '(###) ###-####', filter: { "#": RegExp(r'[0-9]') });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +43,9 @@ class _PhoneAuthState extends State<PhoneAuth> {
           Container(
             padding: const EdgeInsets.fromLTRB(70.0, 5.0, 70.0, 5.0),
             child: TextField(
+              inputFormatters: [
+                maskFormatter,
+              ],
               style: Theme.of(context).textTheme.headline5,
               decoration: InputDecoration(
                 // border: InputBorder.none
