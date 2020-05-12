@@ -42,7 +42,28 @@ class LoginPage extends StatelessWidget {
                   height: 300.0,
                   child: Container(
                     // color: Color.fromRGBO(216, 253, 255, 1.0)
-                    color: Colors.white54
+                    color: Colors.white70,
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 40.0,
+                        ),
+                        SizedBox(
+                          width: 320.0,
+                          height: 45.0,
+                          child: RaisedButton(
+                            textColor: Colors.white,
+                            color: Color.fromRGBO(110, 228, 236, 1.0),
+                            onPressed: () => {},
+                            child: Text("Login"),
+                            elevation: 2.0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ), 
                 )
                 // Container(
