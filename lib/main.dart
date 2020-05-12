@@ -3,6 +3,7 @@ import 'login_page.dart';
 import './models/user.dart';
 import 'api.dart';
 import 'user_builder.dart';
+import 'style.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,10 +16,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
+        // primarySwatch: Colors.red,
+        textTheme: TextTheme(
+          headline1: TitleTextStyle,
+          headline2: Body1TextStyle,
+          headline3: Body2TextStyle,
+          headline4: Body3TextStyle,
+        ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // home: MyHomePage(title: "This is lit."),

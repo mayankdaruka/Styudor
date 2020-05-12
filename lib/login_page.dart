@@ -53,9 +53,8 @@ class LoginPage extends StatelessWidget {
                           height: 45.0,
                           child: RaisedButton(
                             color: Colors.white,
-                            textColor: Color.fromRGBO(110, 228, 236, 1.0),
                             onPressed: () => {},
-                            child: Text("LOGIN"),
+                            child: Text("LOGIN", style: Theme.of(context).textTheme.headline3),
                             elevation: 2.0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15.0),
@@ -64,16 +63,15 @@ class LoginPage extends StatelessWidget {
                         ),
                         Container(
                           padding: const EdgeInsets.all(10.0),
-                          child: Text("- OR -"),
+                          child: Text("- OR -", style: Theme.of(context).textTheme.headline4),
                         ),
                         SizedBox(
                           width: 320.0,
                           height: 45.0,
                           child: RaisedButton(
-                            textColor: Colors.white,
                             color: Color.fromRGBO(110, 228, 236, 1.0),
                             onPressed: () => {},
-                            child: Text("GET STARTED"),
+                            child: Text("GET STARTED", style: Theme.of(context).textTheme.headline2,),
                             elevation: 2.0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15.0),
