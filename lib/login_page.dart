@@ -25,15 +25,24 @@ class LoginPage extends StatelessWidget {
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage("assets/images/books.jpg"), fit: BoxFit.cover,),
+              image: DecorationImage(
+                image: AssetImage("assets/images/books.jpg"),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.2), BlendMode.dstATop),
+              ),
             ) ,
           ),
           Column(
             children: <Widget>[
+              SizedBox(
+                height: 90.0,
+              ),
               Container(
                 constraints: BoxConstraints.expand(height: 200.0),
                 child: Image.asset('assets/images/logo.png'),
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              ),
+              SizedBox(
+                height: 60.0,
               ),
               emailField,
               TextField(
