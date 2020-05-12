@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
               image: DecorationImage(
                 image: AssetImage("assets/images/books.jpg"),
                 fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.2), BlendMode.dstATop),
+                colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.3), BlendMode.dstATop),
               ),
             ) ,
           ),

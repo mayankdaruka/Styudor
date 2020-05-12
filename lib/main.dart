@@ -20,12 +20,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       onGenerateRoute: _routes(),
       theme: ThemeData(
+        primarySwatch: Colors.cyan,
         // primarySwatch: Colors.red,
         textTheme: TextTheme(
           headline1: TitleTextStyle,
           headline2: Body1TextStyle,
           headline3: Body2TextStyle,
           headline4: Body3TextStyle,
+          headline5: Body4TextStyle
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

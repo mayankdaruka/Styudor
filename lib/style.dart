@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-const LargeTextSize = 26.0;
+const LargeTextSize = 24.0;
 const MediumTextSize = 20.0;
-const BodyTextSize = 16.0;
+const BodyTextSize = 17.0;
 const String FontNameDefault = "Montserrat";
 
 const TitleTextStyle = TextStyle(
   fontFamily: FontNameDefault,
   fontSize: LargeTextSize,
+  color: Colors.black
 );
-
 
 const Body1TextStyle = TextStyle(
   fontFamily: FontNameDefault,
@@ -24,6 +24,13 @@ const Body2TextStyle = TextStyle(
 );
 
 const Body3TextStyle = TextStyle(
+  fontFamily: FontNameDefault,
+  fontSize: BodyTextSize,
+  color: Colors.black,
+  fontWeight: FontWeight.bold,
+);
+
+const Body4TextStyle = TextStyle(
   fontFamily: FontNameDefault,
   fontSize: BodyTextSize,
   color: Colors.black
