@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "664974435270",
+    "firebase_url": "https://styudor.firebaseio.com",
+    "project_id": "styudor",
+    "storage_bucket": "styudor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664974435270:android:3e31757228551c4c62c8c7",
+        "android_client_info": {
+          "package_name": "com.example.tutoring"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "664974435270-phmvgkfep6rug8me10t2egs2e5fdvd4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-sJNtVGPWDEvp055BJUAMBAVTCif_1uM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "664974435270-phmvgkfep6rug8me10t2egs2e5fdvd4e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "664974435270-3qmk52jh3oo43ipp46ketpo67j311s6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tutoring"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

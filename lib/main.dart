@@ -5,6 +5,8 @@ import 'api.dart';
 import 'user_builder.dart';
 import 'style.dart';
 
+const LoginRoute = '/';
+
 void main() {
   runApp(MyApp());
 }
@@ -15,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      onGenerateRoute: _routes(),
       theme: ThemeData(
         // primarySwatch: Colors.red,
         textTheme: TextTheme(
@@ -28,6 +31,22 @@ class MyApp extends StatelessWidget {
       // home: MyHomePage(title: "This is lit."),
       home: LoginPage(),
     );
+  }
+
+  RouteFactory _routes() {
+    return (settings) {
+      final Map<String, dynamic> arguments = settings.arguments;
+      Widget screen;
+      switch(settings.name) {
+        case LoginRoute:
+          screen = LoginPage();
+          break;
+        default:
+          return null;
+      }
+      screen = LoginPage();
+      return MaterialPageRoute(builder: (BuildContext context) => screen);
+    };
   }
 }
 
