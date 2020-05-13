@@ -10,12 +10,20 @@ class PhoneAuth extends StatefulWidget {
 class _PhoneAuthState extends State<PhoneAuth> {
   // var maskFormatter = new MaskTextInputFormatter(mask: '+# (###) ###-####', filter: { "#": RegExp(r'[0-9]') });
   var maskFormatter = new MaskTextInputFormatter(mask: '(###) ###-####', filter: { "#": RegExp(r'[0-9]') });
-  
+  Color buttonColor;
+
   final _phoneController = TextEditingController();
 
   void initState() {
     super.initState();
     _phoneController.addListener(_printLatestValue);
+    buttonColor = Color.fromRGBO(110, 228, 236, 1.0);
+  }
+
+  void _handlePhoneAuthentication() {
+    if (buttonColor == Colors.teal) {
+      print("Button Clicked!");
+    }
   }
 
   void dispose() {
@@ -24,7 +32,20 @@ class _PhoneAuthState extends State<PhoneAuth> {
   }
 
   void _printLatestValue() {
-    print("Phone text field: ${_phoneController.text}");
+    if (_phoneController.text.length == 14) {
+      this.setState(() {buttonColor = Colors.teal; });
+      var cleaned = "";
+      final numbers = RegExp(r'^[0-9]$');
+      for (var character in _phoneController.text.split("")) {
+        if (numbers.hasMatch(character)) {
+          cleaned += character;
+        }
+      }
+      print("Cleaned number: $cleaned");
+      print("Phone text field: ${_phoneController.text}");
+    } else {
+      this.setState(() {buttonColor = Color.fromRGBO(110, 228, 236, 1.0); });
+    }
   }
 
   void _handleBackPage(BuildContext context) {
@@ -78,8 +99,9 @@ class _PhoneAuthState extends State<PhoneAuth> {
             width: 320.0,
             height: 45.0,
             child: RaisedButton(
-              color: Color.fromRGBO(110, 228, 236, 1.0),
-              onPressed: () => {},
+              // color: Color.fromRGBO(110, 228, 236, 1.0),
+              color: buttonColor,
+              onPressed: () => this._handlePhoneAuthentication(),
               child: Text("CONTINUE", style: Theme.of(context).textTheme.headline2,),
               elevation: 2.0,
               shape: RoundedRectangleBorder(
