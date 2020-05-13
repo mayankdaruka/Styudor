@@ -6,10 +6,7 @@ import "main.dart";
 const IP_ADDRESS = "10.0.2.2:3000";
 
 class LoginPage extends StatelessWidget {
-
-  // final TextEditingController _usernameController = TextEditingController();
-  // final TextEditingController _passwordController = TextEditingController();
-
+  
   void _handleLogin(BuildContext context) {
     Navigator.pushNamed(context, AuthRoute);
   }
@@ -23,12 +20,6 @@ class LoginPage extends StatelessWidget {
             decoration: BoxDecoration(
               // color: Color.fromRGBO(216, 253, 255, 1.0)
               color: Colors.white,
-              
-              // image: DecorationImage(
-              //   image: AssetImage("assets/images/books.jpg"),
-              //   fit: BoxFit.cover,
-              //   colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.3), BlendMode.dstATop),
-              // ),
             ) ,
           ),
           Center(
@@ -41,9 +32,6 @@ class LoginPage extends StatelessWidget {
                   constraints: BoxConstraints.expand(height: 230.0),
                   child: Image.asset('assets/images/logo3.png'),
                 ),
-                // SizedBox(
-                //   height: 120.0,
-                // ),
                 SizedBox(
                   height: 90.0,
                   child: Container(
@@ -54,23 +42,6 @@ class LoginPage extends StatelessWidget {
                         SizedBox(
                           height: 15.0,
                         ),
-                        // SizedBox(
-                        //   width: 320.0,
-                        //   height: 45.0,
-                        //   child: RaisedButton(
-                        //     color: Colors.white,
-                        //     onPressed: () => this._handleLogin(context),
-                        //     child: Text("LOGIN", style: Theme.of(context).textTheme.headline3),
-                        //     elevation: 2.0,
-                        //     shape: RoundedRectangleBorder(
-                        //       borderRadius: BorderRadius.circular(15.0),
-                        //     ),
-                        //   ),
-                        // ),
-                        // Container(
-                        //   padding: const EdgeInsets.all(10.0),
-                        //   child: Text("- OR -", style: Theme.of(context).textTheme.headline5),
-                        // ),
                         SizedBox(
                           width: 320.0,
                           height: 45.0,
@@ -87,38 +58,7 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                   ), 
-                )
-                // Container(
-                //   padding: const EdgeInsets.fromLTRB(35.0, 0.0, 35.0, 5.0),
-                //   child: TextFormField(
-                //     controller: _usernameController,
-                //     decoration: InputDecoration(
-                //       prefixIcon: Icon(Icons.email),
-                //       // contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                //       labelText: "Email",
-                //       enabledBorder: OutlineInputBorder(
-                //         borderSide: BorderSide(color: Colors.black, width: 1.7),
-                //         borderRadius: BorderRadius.circular(15.0),
-                //       )
-                //     ),
-                //   ),
-                // ),
-                // Container(
-                //   padding: const EdgeInsets.fromLTRB(35.0, 0.0, 35.0, 0.0),
-                //   child: TextField(
-                //     controller: _passwordController,
-                //     obscureText: true,
-                //     maxLength: 20,
-                //     decoration: InputDecoration(
-                //       prefixIcon: Icon(Icons.lock),
-                //       enabledBorder: OutlineInputBorder(
-                //         borderSide: BorderSide(color: Colors.black, width: 1.7),
-                //         borderRadius: BorderRadius.circular(15.0),
-                //       ),
-                //       labelText: "Password"
-                //     ),
-                //   ),
-                // ), 
+                ),
               ]
             ),   
           )     

@@ -70,9 +70,6 @@ class _PhoneAuthState extends State<PhoneAuth> {
               ],
               style: Theme.of(context).textTheme.headline5,
               decoration: InputDecoration(
-                // border: InputBorder.none
-                // fillColor: Color.fromRGBO(235, 235, 235, 1.0),
-                // filled: true,
                 prefixText: "+1 ",
               ),
             ),
