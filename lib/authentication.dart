@@ -23,6 +23,15 @@ class _PhoneAuthState extends State<PhoneAuth> {
   void _handlePhoneAuthentication() {
     if (buttonColor == Colors.teal) {
       print("Button Clicked!");
+      var cleaned = "";
+      final numbers = RegExp(r'^[0-9]$');
+      for (var character in _phoneController.text.split("")) {
+        if (numbers.hasMatch(character)) {
+          cleaned += character;
+        }
+      }
+      print("Cleaned number: $cleaned");
+      Navigator.pushNamed(context, PhoneAuthRoute, arguments: {'number': cleaned});
     }
   }
 
@@ -34,14 +43,6 @@ class _PhoneAuthState extends State<PhoneAuth> {
   void _printLatestValue() {
     if (_phoneController.text.length == 14) {
       this.setState(() {buttonColor = Colors.teal; });
-      var cleaned = "";
-      final numbers = RegExp(r'^[0-9]$');
-      for (var character in _phoneController.text.split("")) {
-        if (numbers.hasMatch(character)) {
-          cleaned += character;
-        }
-      }
-      print("Cleaned number: $cleaned");
       print("Phone text field: ${_phoneController.text}");
     } else {
       this.setState(() {buttonColor = Color.fromRGBO(110, 228, 236, 1.0); });

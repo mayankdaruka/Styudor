@@ -5,9 +5,11 @@ import 'api.dart';
 import 'user_builder.dart';
 import 'style.dart';
 import 'authentication.dart';
+import 'usercode.dart';
 
 const LoginRoute = '/';
 const AuthRoute = '/auth';
+const PhoneAuthRoute = '/phoneauth';
 
 void main() {
   runApp(MyApp());
@@ -47,6 +49,9 @@ class MyApp extends StatelessWidget {
           break;
         case LoginRoute:
           screen = LoginPage();
+          break;
+        case PhoneAuthRoute:
+          screen = UserCode(arguments['number']);
           break;
         default:
           return null;
