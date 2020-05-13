@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'main.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class PhoneAuth extends StatefulWidget {
   @override
@@ -11,6 +12,8 @@ class _PhoneAuthState extends State<PhoneAuth> {
   // var maskFormatter = new MaskTextInputFormatter(mask: '+# (###) ###-####', filter: { "#": RegExp(r'[0-9]') });
   var maskFormatter = new MaskTextInputFormatter(mask: '(###) ###-####', filter: { "#": RegExp(r'[0-9]') });
   Color buttonColor;
+  String _smsCode;
+  String _verificationId; 
 
   final _phoneController = TextEditingController();
 
@@ -18,6 +21,33 @@ class _PhoneAuthState extends State<PhoneAuth> {
     super.initState();
     _phoneController.addListener(_printLatestValue);
     buttonColor = Color.fromRGBO(110, 228, 236, 1.0);
+  }
+
+  Future<void> _verifyPhone(String phoneNo) async {
+    final PhoneCodeAutoRetrievalTimeout autoTimeout = (String verId) {
+      this._verificationId = verId;
+    };
+
+    final PhoneCodeSent smsCodeSent = (String verId, [int forceCodeResend]) {
+      this._verificationId = verId;
+    };
+
+    final PhoneVerificationCompleted verifiedSuccess = (AuthCredential authResult) {
+      FirebaseAuth.instance.signInWithCredential(authResult);
+    };
+
+    final PhoneVerificationFailed verifiedFailed = (AuthException authException) {
+      print(authException.message);
+    };
+    
+    await FirebaseAuth.instance.verifyPhoneNumber(
+      phoneNumber: phoneNo,
+      codeAutoRetrievalTimeout: autoTimeout,
+      verificationCompleted: verifiedSuccess,
+      verificationFailed: verifiedFailed,
+      codeSent: smsCodeSent,
+      timeout: const Duration(seconds: 5),
+    );
   }
 
   void _handlePhoneAuthentication() {
@@ -31,6 +61,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
         }
       }
       print("Cleaned number: $cleaned");
+      _verifyPhone(cleaned);
       Navigator.pushNamed(context, PhoneAuthRoute, arguments: {'number': cleaned});
     }
   }

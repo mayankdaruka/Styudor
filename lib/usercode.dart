@@ -11,13 +11,15 @@ class UserCode extends StatefulWidget {
 }
 
 class _UserCodeState extends State<UserCode> {
-  final _phoneNumber;
+  String _phoneNo;
+  String _smsCode;
+  String _verificationID; 
 
-  _UserCodeState(this._phoneNumber);
+  _UserCodeState(this._phoneNo);
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(_phoneNumber),
+      child: Text(_phoneNo),
     );
   }
 }
