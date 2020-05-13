@@ -22,60 +22,61 @@ class LoginPage extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               // color: Color.fromRGBO(216, 253, 255, 1.0)
-              // color: Colors.white,
-              image: DecorationImage(
-                image: AssetImage("assets/images/books.jpg"),
-                fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.3), BlendMode.dstATop),
-              ),
+              color: Colors.white,
+              
+              // image: DecorationImage(
+              //   image: AssetImage("assets/images/books.jpg"),
+              //   fit: BoxFit.cover,
+              //   colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.3), BlendMode.dstATop),
+              // ),
             ) ,
           ),
           Center(
             child: ListView(
               children: <Widget>[
                 SizedBox(
-                  height: 80.0,
+                  height: 150.0,
                 ),
                 Container(
                   constraints: BoxConstraints.expand(height: 230.0),
-                  child: Image.asset('assets/images/logo.png'),
+                  child: Image.asset('assets/images/logo3.png'),
                 ),
+                // SizedBox(
+                //   height: 120.0,
+                // ),
                 SizedBox(
-                  height: 80.0,
-                ),
-                SizedBox(
-                  height: 300.0,
+                  height: 90.0,
                   child: Container(
                     // color: Color.fromRGBO(216, 253, 255, 1.0)
                     color: Colors.white70,
                     child: Column(
                       children: <Widget>[
                         SizedBox(
-                          height: 60.0,
+                          height: 15.0,
                         ),
-                        SizedBox(
-                          width: 320.0,
-                          height: 45.0,
-                          child: RaisedButton(
-                            color: Colors.white,
-                            onPressed: () => this._handleLogin(context),
-                            child: Text("LOGIN", style: Theme.of(context).textTheme.headline3),
-                            elevation: 2.0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Text("- OR -", style: Theme.of(context).textTheme.headline4),
-                        ),
+                        // SizedBox(
+                        //   width: 320.0,
+                        //   height: 45.0,
+                        //   child: RaisedButton(
+                        //     color: Colors.white,
+                        //     onPressed: () => this._handleLogin(context),
+                        //     child: Text("LOGIN", style: Theme.of(context).textTheme.headline3),
+                        //     elevation: 2.0,
+                        //     shape: RoundedRectangleBorder(
+                        //       borderRadius: BorderRadius.circular(15.0),
+                        //     ),
+                        //   ),
+                        // ),
+                        // Container(
+                        //   padding: const EdgeInsets.all(10.0),
+                        //   child: Text("- OR -", style: Theme.of(context).textTheme.headline5),
+                        // ),
                         SizedBox(
                           width: 320.0,
                           height: 45.0,
                           child: RaisedButton(
                             color: Color.fromRGBO(110, 228, 236, 1.0),
-                            onPressed: () => {},
+                            onPressed: () => this._handleLogin(context),
                             child: Text("GET STARTED", style: Theme.of(context).textTheme.headline2,),
                             elevation: 2.0,
                             shape: RoundedRectangleBorder(

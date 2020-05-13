@@ -6,6 +6,7 @@ import 'user_builder.dart';
 import 'style.dart';
 import 'authentication.dart';
 
+const LoginRoute = '/';
 const AuthRoute = '/auth';
 
 void main() {
@@ -43,6 +44,9 @@ class MyApp extends StatelessWidget {
       switch(settings.name) {
         case AuthRoute:
           screen = PhoneAuth();
+          break;
+        case LoginRoute:
+          screen = LoginPage();
           break;
         default:
           return null;
