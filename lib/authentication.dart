@@ -14,12 +14,13 @@ class _PhoneAuthState extends State<PhoneAuth> {
   Color buttonColor;
   String _smsCode;
   String _verificationId; 
+  bool _codeSent = false;
 
   final _phoneController = TextEditingController();
 
   void initState() {
     super.initState();
-    _phoneController.addListener(_printLatestValue);
+    _phoneController.addListener(_handleLatestValue);
     buttonColor = Color.fromRGBO(110, 228, 236, 1.0);
   }
 
@@ -30,6 +31,10 @@ class _PhoneAuthState extends State<PhoneAuth> {
 
     final PhoneCodeSent smsCodeSent = (String verId, [int forceCodeResend]) {
       this._verificationId = verId;
+      setState(() {
+        _codeSent = true;
+      });
+      Navigator.pushNamed(context, PhoneAuthRoute, arguments: {'number': phoneNo, 'verId': verId});
     };
 
     final PhoneVerificationCompleted verifiedSuccess = (AuthCredential authResult) {
@@ -53,7 +58,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
   void _handlePhoneAuthentication() {
     if (buttonColor == Colors.teal) {
       print("Button Clicked!");
-      var cleaned = "";
+      var cleaned = "+1";
       final numbers = RegExp(r'^[0-9]$');
       for (var character in _phoneController.text.split("")) {
         if (numbers.hasMatch(character)) {
@@ -62,7 +67,6 @@ class _PhoneAuthState extends State<PhoneAuth> {
       }
       print("Cleaned number: $cleaned");
       _verifyPhone(cleaned);
-      Navigator.pushNamed(context, PhoneAuthRoute, arguments: {'number': cleaned});
     }
   }
 
@@ -71,7 +75,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
     super.dispose();
   }
 
-  void _printLatestValue() {
+  void _handleLatestValue() {
     if (_phoneController.text.length == 14) {
       this.setState(() {buttonColor = Colors.teal; });
       print("Phone text field: ${_phoneController.text}");

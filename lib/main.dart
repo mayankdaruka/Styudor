@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
           screen = LoginPage();
           break;
         case PhoneAuthRoute:
-          screen = UserCode(arguments['number']);
+          screen = UserCode(arguments['number'], arguments['verId']);
           break;
         default:
           return null;
