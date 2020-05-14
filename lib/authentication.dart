@@ -59,7 +59,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
       verificationCompleted: verifiedSuccess,
       verificationFailed: verifiedFailed,
       codeSent: smsCodeSent,
-      timeout: const Duration(seconds: 5),
+      timeout: const Duration(seconds: 30),
     );
   }
 

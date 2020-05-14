@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
           screen = UserCode(arguments['number'], arguments['verId']);
           break;
         case DashRoute:
-          screen = DashBoard();
+          screen = DashBoard(arguments['userId']);
           break;
         default:
           return null;

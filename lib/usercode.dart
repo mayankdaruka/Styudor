@@ -60,7 +60,7 @@ class _UserCodeState extends State<UserCode> {
       .then((user) {
         setState(() { _correctCode = true; });
         Navigator.of(context).pop();
-        Navigator.of(context).pushReplacementNamed(DashRoute);
+        Navigator.of(context).pushReplacementNamed(DashRoute, arguments: { 'userId': user.user.uid});
       })
       .catchError((e) {
         print("the error: " + e);
