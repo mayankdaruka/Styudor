@@ -38,6 +38,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
         _codeSent = true;
       });
       if (_codeSent) {
+        _phoneController.clear();
         Navigator.pushNamed(context, PhoneAuthRoute, arguments: {'number': phoneNo, 'verId': _verificationId});
       }
     };

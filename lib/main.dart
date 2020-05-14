@@ -6,10 +6,12 @@ import 'user_builder.dart';
 import 'style.dart';
 import 'authentication.dart';
 import 'usercode.dart';
+import 'dashboard.dart';
 
 const LoginRoute = '/';
 const AuthRoute = '/auth';
 const PhoneAuthRoute = '/phoneauth';
+const DashRoute = '/dashboard';
 
 void main() {
   runApp(MyApp());
@@ -52,6 +54,9 @@ class MyApp extends StatelessWidget {
           break;
         case PhoneAuthRoute:
           screen = UserCode(arguments['number'], arguments['verId']);
+          break;
+        case DashRoute:
+          screen = DashBoard();
           break;
         default:
           return null;

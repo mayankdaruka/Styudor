@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-const LargeTextSize = 24.0;
-const MediumTextSize = 20.0;
-const BodyTextSize = 17.0;
+const LargeTextSize = 22.0;
+const MediumTextSize = 18.0;
+const BodyTextSize = 15.0;
 const String FontNameDefault = "Montserrat";
 
 const TitleTextStyle = TextStyle(

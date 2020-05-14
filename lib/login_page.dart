@@ -8,7 +8,7 @@ const IP_ADDRESS = "10.0.2.2:3000";
 class LoginPage extends StatelessWidget {
   
   void _handleLogin(BuildContext context) {
-    Navigator.pushNamed(context, AuthRoute);
+    Navigator.pushReplacementNamed(context, AuthRoute);
   }
 
   @override
