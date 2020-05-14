@@ -54,6 +54,8 @@ class _UserCodeState extends State<UserCode> {
         smsCode: _smsController.text,
       );
       print("wait this shouldnt be happening");
+      print("helloooooo");
+      setState(() { _numEntered++; });
       await FirebaseAuth.instance.signInWithCredential(authCreds)
       .then((user) {
         setState(() { _correctCode = true; });
@@ -63,7 +65,6 @@ class _UserCodeState extends State<UserCode> {
       .catchError((e) {
         print("the error: " + e);
       });
-      setState(() { _numEntered++; });
     }
   }
 
@@ -98,7 +99,7 @@ class _UserCodeState extends State<UserCode> {
             ],
           ),
           Container(
-            child: (!_correctCode && _numEntered > 0) ? Text("The code entered is not correct", style: TextStyle(color: Colors.red),) : Text("")
+            child: (_correctCode == false && _numEntered > 0) ? Text("The code entered is not correct", style: TextStyle(color: Colors.red),) : Text("")
           ),
           Container(
             padding: const EdgeInsets.fromLTRB(90.0, 5.0, 90.0, 30.0),
@@ -131,7 +132,7 @@ class _UserCodeState extends State<UserCode> {
             child: RaisedButton(
               color: Colors.white,
               onPressed: () => this._handleBackPage(context),
-              child: Text("GO BACK", style: Theme.of(context).textTheme.headline3),
+              child: Text("ENTER A DIFFERENT NUMBER", style: Theme.of(context).textTheme.headline3),
               elevation: 2.0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15.0),
