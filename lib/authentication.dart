@@ -14,34 +14,41 @@ class _PhoneAuthState extends State<PhoneAuth> {
   Color buttonColor;
   String _smsCode;
   String _verificationId; 
-  bool _codeSent = false;
+  bool _codeSent;
 
   final _phoneController = TextEditingController();
 
   void initState() {
     super.initState();
+    _codeSent = false;
     _phoneController.addListener(_handleLatestValue);
     buttonColor = Color.fromRGBO(110, 228, 236, 1.0);
   }
 
   Future<void> _verifyPhone(String phoneNo) async {
     final PhoneCodeAutoRetrievalTimeout autoTimeout = (String verId) {
+      print("does this work part 2");
       this._verificationId = verId;
     };
 
     final PhoneCodeSent smsCodeSent = (String verId, [int forceCodeResend]) {
       this._verificationId = verId;
+      print("does this weven work");
       setState(() {
         _codeSent = true;
       });
-      Navigator.pushNamed(context, PhoneAuthRoute, arguments: {'number': phoneNo, 'verId': verId});
+      if (_codeSent) {
+        Navigator.pushNamed(context, PhoneAuthRoute, arguments: {'number': phoneNo, 'verId': _verificationId});
+      }
     };
 
     final PhoneVerificationCompleted verifiedSuccess = (AuthCredential authResult) {
+      print("does this even work part 3");
       FirebaseAuth.instance.signInWithCredential(authResult);
     };
 
     final PhoneVerificationFailed verifiedFailed = (AuthException authException) {
+      print("there is a problem");
       print(authException.message);
     };
     
@@ -67,6 +74,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
       }
       print("Cleaned number: $cleaned");
       _verifyPhone(cleaned);
+      print(_codeSent);
     }
   }
 

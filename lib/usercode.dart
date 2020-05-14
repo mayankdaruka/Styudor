@@ -38,13 +38,15 @@ class _UserCodeState extends State<UserCode> {
     }
   }
 
-  void _handleCodeAuth() {
+  void _handleCodeAuth() async {
     if (buttonColor == Colors.teal) {
       AuthCredential authCreds = PhoneAuthProvider.getCredential(
         verificationId: _verificationID, 
         smsCode: _smsController.text,
       );
-      FirebaseAuth.instance.signInWithCredential(authCreds);
+      await FirebaseAuth.instance.signInWithCredential(authCreds).catchError((error) =>
+        print("ERRORRRR" + error)
+      );
     }
   }
 
