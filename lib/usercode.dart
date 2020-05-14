@@ -110,7 +110,7 @@ class _UserCodeState extends State<UserCode> {
             ),
           ),
           SizedBox(
-            width: 320.0,
+            width: 300.0,
             height: 45.0,
             child: RaisedButton(
               color: buttonColor,
@@ -127,7 +127,7 @@ class _UserCodeState extends State<UserCode> {
             child: Text("- OR -", style: Theme.of(context).textTheme.headline5),
           ),
           SizedBox(
-            width: 320.0,
+            width: 300.0,
             height: 45.0,
             child: RaisedButton(
               color: Colors.white,

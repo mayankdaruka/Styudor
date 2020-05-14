@@ -141,7 +141,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
             ),
           ),
           SizedBox(
-            width: 320.0,
+            width: 300.0,
             height: 45.0,
             child: RaisedButton(
               // color: Color.fromRGBO(110, 228, 236, 1.0),
@@ -159,7 +159,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
             child: Text("- OR -", style: Theme.of(context).textTheme.headline5),
           ),
           SizedBox(
-            width: 320.0,
+            width: 300.0,
             height: 45.0,
             child: RaisedButton(
               color: Colors.white,

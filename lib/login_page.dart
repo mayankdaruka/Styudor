@@ -19,6 +19,11 @@ class LoginPage extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               // color: Color.fromRGBO(216, 253, 255, 1.0)
+              image: DecorationImage(
+                image: AssetImage("assets/images/books.jpg"),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.2), BlendMode.dstATop),
+              ),
               color: Colors.white,
             ) ,
           ),
@@ -26,7 +31,7 @@ class LoginPage extends StatelessWidget {
             child: ListView(
               children: <Widget>[
                 SizedBox(
-                  height: 150.0,
+                  height: 120.0,
                 ),
                 Container(
                   constraints: BoxConstraints.expand(height: 230.0),
@@ -36,14 +41,13 @@ class LoginPage extends StatelessWidget {
                   height: 90.0,
                   child: Container(
                     // color: Color.fromRGBO(216, 253, 255, 1.0)
-                    color: Colors.white70,
                     child: Column(
                       children: <Widget>[
                         SizedBox(
-                          height: 15.0,
+                          height: 30.0,
                         ),
                         SizedBox(
-                          width: 320.0,
+                          width: 300.0,
                           height: 45.0,
                           child: RaisedButton(
                             color: Color.fromRGBO(110, 228, 236, 1.0),
