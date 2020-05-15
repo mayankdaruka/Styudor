@@ -26,6 +26,15 @@ router.get('/id', (req, res) => {
         res.send(doc);
         console.log(doc);
     })
-})
+});
+
+router.get('/firebaseid', (req, res) => {
+    User.find({ 'firebaseId': req.body.firebaseId }, (err, doc) => {
+        if (err) {
+            return res.status(400).send("error");
+        }
+        res.send(doc);
+    });
+});
 
 module.exports = router;

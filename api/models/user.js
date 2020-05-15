@@ -10,7 +10,8 @@ const User = mongoose.Schema({
     MCATScore: {type: Number},
     GREScore: {type: Number},
     GMATScore: {type: Number},
-    LSATScore: {type: Number}
+    LSATScore: {type: Number},
+    firebaseId: {type: String, required: true},
 });
 
 module.exports = mongoose.model('User', User);

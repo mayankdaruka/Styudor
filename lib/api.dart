@@ -26,7 +26,8 @@ Future<String> newUser() async {
       'MCATScore': 40,
       'GREScore': 90,
       'GMATScore': 120,
-      'LSATScore': 160
+      'LSATScore': 160,
+      'firebaseId': "random id"
     }),
     headers: {'Content-Type': 'application/json'});
     // print("response statuscode " + (response.statusCode).toString());
