@@ -3,8 +3,8 @@ class UserModel {
   final int satScore, actScore, mcatScore, greScore, gmatScore, lsatScore;
 
   UserModel({
-    this.fullname,
-    this.username,
+    this.firstname,
+    this.lastname,
     this.id,
     this.profilePicture,
     this.resume,
@@ -20,8 +20,8 @@ class UserModel {
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       id: json['_id'],
-      fullname: json['fullname'],
-      username: json['username'],
+      firstname: json['firstname'],
+      lastname: json['lastname'],
       profilePicture: json['profilePicture'],
       resume: json['resume'],
       satScore: json['SATScore'],

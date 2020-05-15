@@ -38,11 +38,11 @@ Future<List<UserModel>> getUsers() async {
 //     }
 // }
 
-Future<String> newUser(String fullname, String username, String profilePicture, String resume, int sat, int act, int mcat, int gre, int gmat, int lsat, String firebase) async {
+Future<String> newUser(String firstname, String lastname, String profilePicture, String resume, int sat, int act, int mcat, int gre, int gmat, int lsat, String firebase) async {
   final response = await http.post('$baseURL/users/new',
     body: json.encode({
-      'fullname': fullname,
-      'username': username,
+      'firstname': firstname,
+      'lastname': lastname,
       'profilePicture': profilePicture,
       'resume': resume,
       'SATScore': sat,
@@ -64,10 +64,10 @@ Future<String> newUser(String fullname, String username, String profilePicture, 
 
 Future<List<UserModel>> getUserById(String id) async {
   final response = await http.post("$baseURL/users/firebaseid",
-  body: json.encode({
-    'firebaseId': id,
-  }),
-  headers: {'Content-Type': 'application/json'});
+    body: json.encode({
+      'firebaseId': id,
+    }),
+    headers: {'Content-Type': 'application/json'});
   if (response.statusCode == 200) {
     final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
     return parsed.map<UserModel>((json) => UserModel.fromJson(json)).toList();
