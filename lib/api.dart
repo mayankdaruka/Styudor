@@ -14,20 +14,44 @@ Future<List<UserModel>> getUsers() async {
   }
 }
 
-Future<String> newUser() async {
+// Future<String> newUser() async {
+//   final response = await http.post('$baseURL/users/new',
+//     body: json.encode({
+//       'fullname': 'Yonkers Dark',
+//       'username': 'yonx',
+//       'profilePicture': 'idk what to put',
+//       'resume': 'insert some random pdf??',
+//       'SATScore': 1540,
+//       'ACTScore': 35,
+//       'MCATScore': 40,
+//       'GREScore': 90,
+//       'GMATScore': 120,
+//       'LSATScore': 160,
+//       'firebaseId': "random id"
+//     }),
+//     headers: {'Content-Type': 'application/json'});
+//     // print("response statuscode " + (response.statusCode).toString());
+//     if (response.statusCode == 200) {
+//         return response.body;
+//     } else {
+//       throw Exception("There is an error.");
+//     }
+// }
+
+Future<String> newUser(String fullname, String username, String profilePicture, String resume, int sat, int act, int mcat, int gre, int gmat, int lsat, String firebase) async {
   final response = await http.post('$baseURL/users/new',
     body: json.encode({
-      'fullname': 'Yonkers Dark',
-      'username': 'yonx',
-      'profilePicture': 'idk what to put',
-      'resume': 'insert some random pdf??',
-      'SATScore': 1540,
-      'ACTScore': 35,
-      'MCATScore': 40,
-      'GREScore': 90,
-      'GMATScore': 120,
-      'LSATScore': 160,
-      'firebaseId': "random id"
+      'fullname': fullname,
+      'username': username,
+      'profilePicture': profilePicture,
+      'resume': resume,
+      'SATScore': sat,
+      'ACTScore': act,
+      'MCATScore': mcat,
+      'GREScore': gre,
+      'GMATScore': gmat,
+      'LSATScore': lsat,
+      'firebaseId': firebase
     }),
     headers: {'Content-Type': 'application/json'});
     // print("response statuscode " + (response.statusCode).toString());
@@ -36,4 +60,18 @@ Future<String> newUser() async {
     } else {
       throw Exception("There is an error.");
     }
+}
+
+Future<List<UserModel>> getUserById(String id) async {
+  final response = await http.post("$baseURL/users/firebaseid",
+  body: json.encode({
+    'firebaseId': id,
+  }),
+  headers: {'Content-Type': 'application/json'});
+  if (response.statusCode == 200) {
+    final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
+    return parsed.map<UserModel>((json) => UserModel.fromJson(json)).toList();
+  } else {
+    throw Exception("There is an error");
+  }
 }
