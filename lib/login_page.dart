@@ -22,7 +22,7 @@ class LoginPage extends StatelessWidget {
               image: DecorationImage(
                 image: AssetImage("assets/images/books.jpg"),
                 fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.2), BlendMode.dstATop),
+                colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.3), BlendMode.dstATop),
               ),
               color: Colors.white,
             ) ,
@@ -31,20 +31,20 @@ class LoginPage extends StatelessWidget {
             child: ListView(
               children: <Widget>[
                 SizedBox(
-                  height: 120.0,
+                  height: 100.0,
                 ),
                 Container(
                   constraints: BoxConstraints.expand(height: 230.0),
                   child: Image.asset('assets/images/logo3.png'),
                 ),
                 SizedBox(
-                  height: 90.0,
+                  height: 100.0,
                   child: Container(
                     // color: Color.fromRGBO(216, 253, 255, 1.0)
                     child: Column(
                       children: <Widget>[
                         SizedBox(
-                          height: 30.0,
+                          height: 50.0,
                         ),
                         SizedBox(
                           width: 300.0,
