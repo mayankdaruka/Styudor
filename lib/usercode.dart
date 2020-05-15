@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:tutoring/newuser_info.dart';
 import 'main.dart';
 
 class UserCode extends StatefulWidget {
@@ -60,7 +61,8 @@ class _UserCodeState extends State<UserCode> {
       .then((user) {
         setState(() { _correctCode = true; });
         Navigator.of(context).pop();
-        Navigator.of(context).pushReplacementNamed(DashRoute, arguments: { 'userId': user.user.uid});
+        // Navigator.of(context).pushReplacementNamed(DashRoute, arguments: { 'userId': user.user.uid});
+        Navigator.of(context).pushReplacementNamed(NewUserRoute);
       })
       .catchError((e) {
         print("the error: " + e);

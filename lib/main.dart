@@ -7,11 +7,13 @@ import 'style.dart';
 import 'authentication.dart';
 import 'usercode.dart';
 import 'dashboard.dart';
+import 'newuser_info.dart';
 
 const LoginRoute = '/';
 const AuthRoute = '/auth';
 const PhoneAuthRoute = '/phoneauth';
 const DashRoute = '/dashboard';
+const NewUserRoute = '/newuser';
 
 void main() {
   runApp(MyApp());
@@ -57,6 +59,9 @@ class MyApp extends StatelessWidget {
           break;
         case DashRoute:
           screen = DashBoard(arguments['userId']);
+          break;
+        case NewUserRoute:
+          screen = NewUserInfo();
           break;
         default:
           return null;
