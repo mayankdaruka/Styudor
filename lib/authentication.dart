@@ -22,7 +22,8 @@ class _PhoneAuthState extends State<PhoneAuth> {
     super.initState();
     _codeSent = false;
     _phoneController.addListener(_handleLatestValue);
-    buttonColor = Color.fromRGBO(110, 228, 236, 1.0);
+    // buttonColor = Color.fromRGBO(110, 228, 236, 1.0);
+    buttonColor = Colors.grey;
   }
 
   Future<void> _verifyPhone(String phoneNo) async {
@@ -64,7 +65,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
   }
 
   void _handlePhoneAuthentication() {
-    if (buttonColor == Colors.teal) {
+    if (buttonColor == Color.fromRGBO(110, 228, 236, 1.0)) {
       print("Button Clicked!");
       var cleaned = "+1";
       final numbers = RegExp(r'^[0-9]$');
@@ -86,10 +87,10 @@ class _PhoneAuthState extends State<PhoneAuth> {
 
   void _handleLatestValue() {
     if (_phoneController.text.length == 14) {
-      this.setState(() {buttonColor = Colors.teal; });
+      this.setState(() { buttonColor = Color.fromRGBO(110, 228, 236, 1.0); });
       print("Phone text field: ${_phoneController.text}");
     } else {
-      this.setState(() {buttonColor = Color.fromRGBO(110, 228, 236, 1.0); });
+      this.setState(() { buttonColor = Colors.grey; });
     }
   }
 
@@ -100,6 +101,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: <Widget>[
           Container(
@@ -107,7 +109,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
               // color: Color.fromRGBO(216, 253, 255, 1.0)
               image: DecorationImage(
                 image: AssetImage("assets/images/background.png"),
-                fit: BoxFit.cover,
+                fit: BoxFit.fitHeight,
                 // colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.3), BlendMode.dstATop),
               ),
               color: Colors.white,

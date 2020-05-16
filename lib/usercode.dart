@@ -32,15 +32,15 @@ class _UserCodeState extends State<UserCode> {
     _correctCode = false;
     _numEntered = 0;
     _smsController.addListener(_handleLatestValue);
-    buttonColor = Color.fromRGBO(110, 228, 236, 1.0);
+    buttonColor = Colors.grey;
   }
 
   void _handleLatestValue() {
       if (_smsController.text.length == 6) {
-      this.setState(() {buttonColor = Colors.teal; });
+      this.setState(() {buttonColor = Color.fromRGBO(110, 228, 236, 1.0); });
       print("Code text field: ${_smsController.text}");
     } else {
-      this.setState(() {buttonColor = Color.fromRGBO(110, 228, 236, 1.0); });
+      this.setState(() {buttonColor = Colors.grey; });
     }
   }
 
@@ -49,7 +49,7 @@ class _UserCodeState extends State<UserCode> {
   }
 
   void _handleCodeAuth() async {
-    if (buttonColor == Colors.teal) {
+    if (buttonColor == Color.fromRGBO(110, 228, 236, 1.0)) {
       AuthCredential authCreds = PhoneAuthProvider.getCredential(
         verificationId: _verificationID, 
         smsCode: _smsController.text,
@@ -73,6 +73,7 @@ class _UserCodeState extends State<UserCode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: <Widget>[
           Container(
