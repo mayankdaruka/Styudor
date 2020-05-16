@@ -14,6 +14,7 @@ const AuthRoute = '/auth';
 const PhoneAuthRoute = '/phoneauth';
 const DashRoute = '/dashboard';
 const NewUserRoute = '/newuser';
+const EnterInfoRoute = '/enterinfo';
 
 void main() {
   runApp(MyApp());

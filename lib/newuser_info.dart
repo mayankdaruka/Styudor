@@ -50,6 +50,12 @@ class _NewUserInfoState extends State<NewUserInfo> {
     checkFilled();
   }
 
+  void _handleSubmit(BuildContext context) {
+    if (buttonColor == Colors.teal) {
+      
+    }
+  }
+
   final box = SizedBox(height: 30.0,);
 
   SizedBox submitButton(BuildContext context) {
@@ -59,7 +65,7 @@ class _NewUserInfoState extends State<NewUserInfo> {
             child: RaisedButton(
               // color: Color.fromRGBO(110, 228, 236, 1.0),
               color: buttonColor,
-              onPressed: () => {},
+              onPressed: () => this._handleSubmit(context),
               child: Text("CONTINUE", style: Theme.of(context).textTheme.headline2,),
               elevation: 2.0,
               shape: RoundedRectangleBorder(
