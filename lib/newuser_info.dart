@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'api.dart';
 
 class NewUserInfo extends StatefulWidget {
@@ -10,6 +11,7 @@ class _NewUserInfoState extends State<NewUserInfo> {
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
   final _zipcodeController = TextEditingController();
+  var maskFormatter = new MaskTextInputFormatter(mask: '#####', filter: { "#": RegExp(r'[0-9]') });
 
   Color buttonColor;
   List<bool> _selections = [false, false];
@@ -33,7 +35,7 @@ class _NewUserInfoState extends State<NewUserInfo> {
   }
 
   void checkFilled() {
-    if (this._firstNameController.text.length > 0 && this._lastNameController.text.length > 0 && this._zipcodeController.text.length > 0 && oneSelected()) {
+    if (this._firstNameController.text.length > 0 && this._lastNameController.text.length > 0 && this._zipcodeController.text.length == 5 && oneSelected()) {
       setState(() {
         buttonColor = Color.fromRGBO(110, 228, 236, 1.0);;
       });
@@ -131,6 +133,9 @@ class _NewUserInfoState extends State<NewUserInfo> {
                 Container(
                   padding: const EdgeInsets.fromLTRB(80.0, 0.0, 80.0, 0.0),
                   child: TextField(
+                    inputFormatters: [
+                      maskFormatter,
+                    ],
                     controller: _zipcodeController,
                   ),
                 ),
