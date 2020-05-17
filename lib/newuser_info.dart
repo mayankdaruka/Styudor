@@ -9,6 +9,7 @@ class NewUserInfo extends StatefulWidget {
 class _NewUserInfoState extends State<NewUserInfo> {
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
+  final _zipcodeController = TextEditingController();
 
   Color buttonColor;
   List<bool> _selections = [false, false];
@@ -19,6 +20,7 @@ class _NewUserInfoState extends State<NewUserInfo> {
     buttonColor = Colors.grey;
     _firstNameController.addListener(this._handleFirstName);
     _lastNameController.addListener(this._handleLastName);
+    _zipcodeController.addListener(this._handleZipcode);
   }
 
   bool oneSelected() {
@@ -31,7 +33,7 @@ class _NewUserInfoState extends State<NewUserInfo> {
   }
 
   void checkFilled() {
-    if (this._firstNameController.text.length > 0 && this._lastNameController.text.length > 0 && oneSelected()) {
+    if (this._firstNameController.text.length > 0 && this._lastNameController.text.length > 0 && this._zipcodeController.text.length > 0 && oneSelected()) {
       setState(() {
         buttonColor = Color.fromRGBO(110, 228, 236, 1.0);;
       });
@@ -47,6 +49,10 @@ class _NewUserInfoState extends State<NewUserInfo> {
   }
 
   void _handleLastName() {
+    checkFilled();
+  }
+
+  void _handleZipcode() {
     checkFilled();
   }
 
@@ -116,6 +122,16 @@ class _NewUserInfoState extends State<NewUserInfo> {
                   padding: const EdgeInsets.fromLTRB(80.0, 0.0, 80.0, 0.0),
                   child: TextField(
                     controller: _lastNameController,
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+                  child: Text("Zipcode", style: Theme.of(context).textTheme.headline4,),
+                ),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(80.0, 0.0, 80.0, 0.0),
+                  child: TextField(
+                    controller: _zipcodeController,
                   ),
                 ),
                 box, 
