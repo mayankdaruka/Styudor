@@ -13,6 +13,7 @@ const User = mongoose.Schema({
     // LSATScore: {type: Number},
     firebaseId: {type: String, required: true},
     zipcode: {type: Number, required: true},
+    tutor: {type: Boolean, required: true},
 });
 
 module.exports = mongoose.model('User', User);

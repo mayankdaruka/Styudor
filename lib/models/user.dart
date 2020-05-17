@@ -1,6 +1,7 @@
 class UserModel {
   final String firstname, lastname, id, firebaseId;
   final int zipcode;
+  final bool tutor;
 
   UserModel({
     this.firstname,
@@ -16,6 +17,7 @@ class UserModel {
     // this.lsatScore,
     this.firebaseId,
     this.zipcode,
+    this.tutor,
   });
 
   // Factory function - returns instance of a class
@@ -34,6 +36,7 @@ class UserModel {
       // lsatScore: json['LSATScore'],
       firebaseId: json['firebaseId'],
       zipcode: json['zipcode'],
+      tutor: json['tutor'],
     );
   }
 }

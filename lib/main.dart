@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
           screen = DashBoard(arguments['userId']);
           break;
         case NewUserRoute:
-          screen = NewUserInfo();
+          screen = NewUserInfo(arguments['userId']);
           break;
         default:
           return null;

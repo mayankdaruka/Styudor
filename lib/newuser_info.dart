@@ -3,18 +3,25 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'api.dart';
 
 class NewUserInfo extends StatefulWidget {
+  final _uid;
+
+  NewUserInfo(this._uid);
+
   @override
-  _NewUserInfoState createState() => _NewUserInfoState();
+  _NewUserInfoState createState() => _NewUserInfoState(_uid);
 }
 
 class _NewUserInfoState extends State<NewUserInfo> {
+  final _uid;
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
   final _zipcodeController = TextEditingController();
   var maskFormatter = new MaskTextInputFormatter(mask: '#####', filter: { "#": RegExp(r'[0-9]') });
-
+  bool _tutor;
   Color buttonColor;
   List<bool> _selections = [false, false];
+
+  _NewUserInfoState(this._uid);
 
     @override
   void initState() {
@@ -23,6 +30,7 @@ class _NewUserInfoState extends State<NewUserInfo> {
     _firstNameController.addListener(this._handleFirstName);
     _lastNameController.addListener(this._handleLastName);
     _zipcodeController.addListener(this._handleZipcode);
+    _tutor = false;
   }
 
   bool oneSelected() {
@@ -37,7 +45,7 @@ class _NewUserInfoState extends State<NewUserInfo> {
   void checkFilled() {
     if (this._firstNameController.text.length > 0 && this._lastNameController.text.length > 0 && this._zipcodeController.text.length == 5 && oneSelected()) {
       setState(() {
-        buttonColor = Color.fromRGBO(110, 228, 236, 1.0);;
+        buttonColor = Color.fromRGBO(110, 228, 236, 1.0);
       });
     } else {
       setState(() {
@@ -60,7 +68,8 @@ class _NewUserInfoState extends State<NewUserInfo> {
 
   void _handleSubmit(BuildContext context) {
     if (buttonColor == Color.fromRGBO(110, 228, 236, 1.0)) {
-      
+      Future<String> user = newUser(_firstNameController.text, _lastNameController.text, this._uid, _zipcodeController.text, this._tutor);
+      print(user);
     }
   }
 
@@ -161,8 +170,10 @@ class _NewUserInfoState extends State<NewUserInfo> {
                       int otherIndex;
                       if (index == 0) {
                         otherIndex = 1;
+                        setState(() { _tutor = false; });
                       } else {
                         otherIndex = 0;
+                        setState(() { _tutor = true; });
                       }
                       setState(() {
                         _selections[index] = !_selections[index];
