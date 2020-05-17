@@ -18,7 +18,7 @@ class UserList extends StatelessWidget {
               itemCount: snapshot.data.length,
               itemBuilder: (context, i) {
                 return Container(
-                  child: Text(snapshot.data[i].greScore.toString()),
+                  child: Text(snapshot.data[i].firebaseId.toString()),
                 );
               },
             );

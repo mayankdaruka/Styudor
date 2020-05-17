@@ -38,19 +38,19 @@ Future<List<UserModel>> getUsers() async {
 //     }
 // }
 
-Future<String> newUser(String firstname, String lastname, String profilePicture, String resume, int sat, int act, int mcat, int gre, int gmat, int lsat, String firebase, int zipcode) async {
+Future<String> newUser(String firstname, String lastname, String firebase, int zipcode) async {
   final response = await http.post('$baseURL/users/new',
     body: json.encode({
       'firstname': firstname,
       'lastname': lastname,
-      'profilePicture': profilePicture,
-      'resume': resume,
-      'SATScore': sat,
-      'ACTScore': act,
-      'MCATScore': mcat,
-      'GREScore': gre,
-      'GMATScore': gmat,
-      'LSATScore': lsat,
+      // 'profilePicture': profilePicture,
+      // 'resume': resume,
+      // 'SATScore': sat,
+      // 'ACTScore': act,
+      // 'MCATScore': mcat,
+      // 'GREScore': gre,
+      // 'GMATScore': gmat,
+      // 'LSATScore': lsat,
       'firebaseId': firebase,
       'zipcode': zipcode,
     }),
