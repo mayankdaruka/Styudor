@@ -1,6 +1,6 @@
 class UserModel {
   final String firstname, lastname, id, profilePicture, resume;
-  final int satScore, actScore, mcatScore, greScore, gmatScore, lsatScore;
+  final int satScore, actScore, mcatScore, greScore, gmatScore, lsatScore, zipcode;
 
   UserModel({
     this.firstname,
@@ -13,7 +13,8 @@ class UserModel {
     this.mcatScore,
     this.greScore,
     this.gmatScore,
-    this.lsatScore
+    this.lsatScore,
+    this.zipcode,
   });
 
   // Factory function - returns instance of a class
@@ -30,6 +31,7 @@ class UserModel {
       greScore: json['GREScore'],
       gmatScore: json['GMATScore'],
       lsatScore: json['LSATScore'],
+      zipcode: json['zipcode'],
     );
   }
 }

@@ -76,17 +76,17 @@ class _UserCodeState extends State<UserCode> {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              // color: Color.fromRGBO(216, 253, 255, 1.0)
-              image: DecorationImage(
-                image: AssetImage("assets/images/backg2.png"),
-                fit: BoxFit.cover,
-                // colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.3), BlendMode.dstATop),
-              ),
-              color: Colors.white,
-            ) ,
-          ),
+          // Container(
+          //   decoration: BoxDecoration(
+          //     // color: Color.fromRGBO(216, 253, 255, 1.0)
+          //     image: DecorationImage(
+          //       image: AssetImage("assets/images/backg2.png"),
+          //       fit: BoxFit.cover,
+          //       colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.6), BlendMode.dstATop),
+          //     ),
+          //     color: Colors.white,
+          //   ) ,
+          // ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[

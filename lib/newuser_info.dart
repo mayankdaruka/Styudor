@@ -81,17 +81,17 @@ class _NewUserInfoState extends State<NewUserInfo> {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              // color: Color.fromRGBO(216, 253, 255, 1.0)
-              image: DecorationImage(
-                image: AssetImage("assets/images/back3.png"),
-                fit: BoxFit.cover,
-                // colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.3), BlendMode.dstATop),
-              ),
-              color: Colors.white,
-            ) ,
-          ),
+          // Container(
+          //   decoration: BoxDecoration(
+          //     // color: Color.fromRGBO(216, 253, 255, 1.0)
+          //     image: DecorationImage(
+          //       image: AssetImage("assets/images/back3.png"),
+          //       fit: BoxFit.cover,
+          //       colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.6), BlendMode.dstATop),
+          //     ),
+          //     color: Colors.white,
+          //   ) ,
+          // ),
           SingleChildScrollView(
             child: Column(
               children: <Widget>[
