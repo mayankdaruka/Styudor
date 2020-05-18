@@ -30,7 +30,7 @@ class _NewUserInfoState extends State<NewUserInfo> {
     _firstNameController.addListener(this._handleFirstName);
     _lastNameController.addListener(this._handleLastName);
     _zipcodeController.addListener(this._handleZipcode);
-    _tutor = false;
+    _tutor = true;
   }
 
   bool oneSelected() {
@@ -68,7 +68,8 @@ class _NewUserInfoState extends State<NewUserInfo> {
 
   void _handleSubmit(BuildContext context) {
     if (buttonColor == Color.fromRGBO(110, 228, 236, 1.0)) {
-      Future<String> user = newUser(_firstNameController.text, _lastNameController.text, this._uid, _zipcodeController.text, this._tutor);
+      print(_tutor);
+      Future<String> user = newUser(_firstNameController.text, _lastNameController.text, this._uid, _zipcodeController.text, _tutor);
       print(user);
     }
   }

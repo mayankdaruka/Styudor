@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:tutoring/newuser_info.dart';
 import 'main.dart';
+import 'api.dart';
 
 class UserCode extends StatefulWidget {
 
@@ -48,7 +49,7 @@ class _UserCodeState extends State<UserCode> {
     Navigator.pushReplacementNamed(context, AuthRoute);
   }
 
-  void _handleCodeAuth() async {
+  void _handleCodeAuth(BuildContext context) async {
     if (buttonColor == Color.fromRGBO(110, 228, 236, 1.0)) {
       AuthCredential authCreds = PhoneAuthProvider.getCredential(
         verificationId: _verificationID, 
@@ -60,9 +61,16 @@ class _UserCodeState extends State<UserCode> {
       await FirebaseAuth.instance.signInWithCredential(authCreds)
       .then((user) {
         setState(() { _correctCode = true; });
-        Navigator.of(context).pop();
-        // Navigator.of(context).pushReplacementNamed(DashRoute, arguments: { 'userId': user.user.uid });
-        Navigator.of(context).pushReplacementNamed(NewUserRoute, arguments: { 'userId': user.user.uid });
+        print("List by getting ID: ");
+        print(getUserById(user.user.uid).then((value) {
+          print(value.length);
+          if (value.length > 2) {
+            Navigator.of(context).pop();
+            Navigator.of(context).pushReplacementNamed(DashRoute, arguments: { 'userId': user.user.uid });
+          } else {
+            Navigator.of(context).pushReplacementNamed(NewUserRoute, arguments: { 'userId': user.user.uid });
+          }
+        }));
       })
       .catchError((e) {
         print("the error: " + e);
@@ -130,7 +138,7 @@ class _UserCodeState extends State<UserCode> {
                 height: 45.0,
                 child: RaisedButton(
                   color: buttonColor,
-                  onPressed: () => this._handleCodeAuth(),
+                  onPressed: () => this._handleCodeAuth(context),
                   child: Text("CONTINUE", style: Theme.of(context).textTheme.headline2,),
                   elevation: 2.0,
                   shape: RoundedRectangleBorder(

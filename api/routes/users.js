@@ -29,7 +29,7 @@ router.get('/id', (req, res) => {
 });
 
 router.post('/firebaseid', (req, res) => {
-    User.find({ 'firebaseId': req.body.firebaseId }, (err, doc) => {
+    User.find({ 'firebaseId': req.body['firebaseId'] }, (err, doc) => {
         if (err) {
             return res.status(400).send("error");
         }
