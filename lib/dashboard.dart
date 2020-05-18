@@ -11,8 +11,19 @@ class DashBoard extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text(_user['firstname']),
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              SizedBox(
+                height: 40.0,
+              ),
+              Text(_user['firstname']),
+            ],
+          )
+        ],
+      ),
     );
   }
 }

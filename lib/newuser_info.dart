@@ -74,7 +74,7 @@ class _NewUserInfoState extends State<NewUserInfo> {
       // print(user);
       Navigator.pop(context);
       getUserById(_uid).then((value) {
-          Navigator.of(context).pushReplacementNamed(DashRoute, arguments: { 'userId': value[0] } );
+          Navigator.of(context).pushReplacementNamed(DashRoute, arguments: { 'userId': value[0] });
       });
       // Navigator.of(context).pushReplacementNamed(DashRoute, arguments: { 'userId': firebaseUser });
     }
