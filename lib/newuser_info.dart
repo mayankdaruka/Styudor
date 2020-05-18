@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'api.dart';
+import 'main.dart';
 
 class NewUserInfo extends StatefulWidget {
   final _uid;
@@ -71,6 +72,8 @@ class _NewUserInfoState extends State<NewUserInfo> {
       print(_tutor);
       Future<String> user = newUser(_firstNameController.text, _lastNameController.text, this._uid, _zipcodeController.text, _tutor);
       print(user);
+      Navigator.pop(context);
+      // Navigator.of(context).pushReplacementNamed(DashRoute, arguments: { 'userId': firebaseUser });
     }
   }
 

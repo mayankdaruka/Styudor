@@ -32,20 +32,19 @@ Future<String> newUser(String firstname, String lastname, String firebase, Strin
     }
 }
 
-// Future<List<UserModel>> getUserById(String id) async {
-//   final response = await http.post("$baseURL/users/firebaseid",
-//     body: json.encode({
-//       'firebaseId': id,
-//     }),
-//     headers: {'Content-Type': 'application/json'});
-//   if (response.statusCode == 200) {
-//     // final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
-//     // return parsed.map<UserModel>((json) => UserModel.fromJson(json)).toList();
-//     return json.decode(response.body);
-//   } else {
-//     throw Exception("There is an error");
-//   }
-// }
+Future<List<UserModel>> getUserByFirebaseId(String id) async {
+  final response = await http.post("$baseURL/users/firebaseid",
+    body: json.encode({
+      'firebaseId': id,
+    }),
+    headers: {'Content-Type': 'application/json'});
+  if (response.statusCode == 200) {
+    final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
+    return parsed.map<UserModel>((json) => UserModel.fromJson(json)).toList();
+  } else {
+    throw Exception("There is an error");
+  }
+}
 
 Future<String> getUserById(String id) async {
   final response = await http.post("$baseURL/users/firebaseid",
@@ -56,7 +55,7 @@ Future<String> getUserById(String id) async {
   if (response.statusCode == 200) {
     // final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
     // return parsed.map<UserModel>((json) => UserModel.fromJson(json)).toList();
-    return json.decode(response.body).toString();
+    return json.decode(response.body);
   } else {
     throw Exception("There is an error");
   }
