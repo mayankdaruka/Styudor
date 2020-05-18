@@ -63,10 +63,13 @@ class _UserCodeState extends State<UserCode> {
         setState(() { _correctCode = true; });
         print("List by getting ID: ");
         getUserById(user.user.uid).then((value) {
+          // print(value[0]);
+          print(value);
           print(value.length);
-          if (value.length > 2) {
+          if (value.length > 0) {
             Navigator.of(context).pop();
-            Navigator.of(context).pushReplacementNamed(DashRoute, arguments: { 'userId': value } );
+            print(value[0]);
+            Navigator.of(context).pushReplacementNamed(DashRoute, arguments: { 'userId': value[0] } );
           } else {
             Navigator.of(context).pushReplacementNamed(NewUserRoute, arguments: { 'userId': user.user.uid });
           }

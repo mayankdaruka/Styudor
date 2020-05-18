@@ -71,8 +71,11 @@ class _NewUserInfoState extends State<NewUserInfo> {
     if (buttonColor == Color.fromRGBO(110, 228, 236, 1.0)) {
       print(_tutor);
       Future<String> user = newUser(_firstNameController.text, _lastNameController.text, this._uid, _zipcodeController.text, _tutor);
-      print(user);
+      // print(user);
       Navigator.pop(context);
+      getUserById(_uid).then((value) {
+          Navigator.of(context).pushReplacementNamed(DashRoute, arguments: { 'userId': value[0] } );
+      });
       // Navigator.of(context).pushReplacementNamed(DashRoute, arguments: { 'userId': firebaseUser });
     }
   }

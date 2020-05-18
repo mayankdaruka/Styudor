@@ -46,7 +46,7 @@ Future<List<UserModel>> getUserByFirebaseId(String id) async {
   }
 }
 
-Future<String> getUserById(String id) async {
+Future<List<dynamic>> getUserById(String id) async {
   final response = await http.post("$baseURL/users/firebaseid",
     body: json.encode({
       'firebaseId': id,
