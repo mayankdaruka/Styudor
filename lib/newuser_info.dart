@@ -67,10 +67,10 @@ class _NewUserInfoState extends State<NewUserInfo> {
     checkFilled();
   }
 
-  void _handleSubmit(BuildContext context) {
+  void _handleSubmit(BuildContext context) async {
     if (buttonColor == Color.fromRGBO(110, 228, 236, 1.0)) {
       print(_tutor);
-      Future<String> user = newUser(_firstNameController.text, _lastNameController.text, this._uid, _zipcodeController.text, _tutor);
+      String user = await newUser(_firstNameController.text, _lastNameController.text, this._uid, _zipcodeController.text, _tutor);
       // print(user);
       Navigator.pop(context);
       getUserById(_uid).then((value) {
@@ -130,6 +130,7 @@ class _NewUserInfoState extends State<NewUserInfo> {
                   padding: const EdgeInsets.fromLTRB(80.0, 0.0, 80.0, 0.0),
                   child: TextField(
                     controller: _firstNameController,
+                    maxLength: 14,
                   ),
                 ),
                 Container(
@@ -140,6 +141,7 @@ class _NewUserInfoState extends State<NewUserInfo> {
                   padding: const EdgeInsets.fromLTRB(80.0, 0.0, 80.0, 0.0),
                   child: TextField(
                     controller: _lastNameController,
+                    maxLength: 14,
                   ),
                 ),
                 Container(

@@ -28,10 +28,15 @@ class DashBoard extends StatelessWidget {
                   // color: Colors.white,
                   
                 ),
-                child: Text(
-                  _user['firstname'] + " " + _user['lastname'],
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6,),
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      _user['firstname'] + " " + _user['lastname'],
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                  ],
+                ),
               ),
               ListTile(
                 leading: Icon(Icons.developer_board),
