@@ -35,7 +35,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 Container(
                   constraints: BoxConstraints.expand(height: 250.0),
-                  child: Image.asset('assets/images/logo3.png'),
+                  child: Image.asset('assets/images/logo5.png'),
                 ),
                 SizedBox(
                   height: 100.0,
