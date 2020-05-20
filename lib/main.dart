@@ -35,7 +35,8 @@ class MyApp extends StatelessWidget {
           headline2: Body1TextStyle,
           headline3: Body2TextStyle,
           headline4: Body3TextStyle,
-          headline5: Body4TextStyle
+          headline5: Body4TextStyle,
+          headline6: Title2TextStyle,
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

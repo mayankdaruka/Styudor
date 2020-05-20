@@ -17,47 +17,42 @@ class DashBoard extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0.0,
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                // color: Colors.white,
+      drawer: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.65,
+        child: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  // color: Colors.white,
+                  
+                ),
+                child: Text(
+                  _user['firstname'] + " " + _user['lastname'],
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headline6,),
+              ),
+              ListTile(
+                leading: Icon(Icons.developer_board),
+                title: Text('DASHBOARD', style: Theme.of(context).textTheme.headline4,),
                 
               ),
-              child: Text(
-                'Drawer Header',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 24.0,
-                ),
+              ListTile(
+                leading: Icon(Icons.book),
+                title: Text('FIND A TUTOR', style: Theme.of(context).textTheme.headline4,),
               ),
-            ),
-            ListTile(
-              leading: Icon(Icons.developer_board),
-              title: Text('DASHBOARD'),
-              
-            ),
-            ListTile(
-              leading: Icon(Icons.book),
-              title: Text('FIND A TUTOR'),
-            ),
-            ListTile(
-              leading: Icon(Icons.map),
-              title: Text('MAP'),
-            ),
-            ListTile(
-              leading: Icon(Icons.question_answer),
-              title: Text('HOW IT WORKS'),
-            ),
-          ],
+              ListTile(
+                leading: Icon(Icons.map),
+                title: Text('MAP', style: Theme.of(context).textTheme.headline4,),
+              ),
+              ListTile(
+                leading: Icon(Icons.question_answer),
+                title: Text('HOW IT WORKS', style: Theme.of(context).textTheme.headline4,),
+              ),
+            ],
+          ),
         ),
-      ),
-      body: Column(
-        children: <Widget>[
-          Text(_user['firstname']),
-        ],
       ),
     );
   }

@@ -11,6 +11,13 @@ const TitleTextStyle = TextStyle(
   color: Colors.black
 );
 
+const Title2TextStyle = TextStyle(
+  fontFamily: FontNameDefault,
+  fontSize: LargeTextSize,
+  color: Colors.black,
+  fontWeight: FontWeight.bold,
+);
+
 const Body1TextStyle = TextStyle(
   fontFamily: FontNameDefault,
   fontSize: BodyTextSize,
