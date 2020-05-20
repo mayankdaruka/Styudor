@@ -2,13 +2,20 @@ import 'package:flutter/material.dart';
 import 'api.dart';
 import 'main.dart';
 
-class DashBoard extends StatelessWidget {
+class DashBoard extends StatefulWidget {
   final _user;
 
   DashBoard(this._user);
 
-  // final user = getUserByFirebaseId(_uid);
-  
+  @override
+  _DashBoardState createState() => _DashBoardState(_user);
+}
+
+class _DashBoardState extends State<DashBoard> {
+  final _user;
+
+  _DashBoardState(this._user);
+
   final emptySpace = SizedBox(
     height: 80.0,
   );
@@ -28,10 +35,6 @@ class DashBoard extends StatelessWidget {
             padding: EdgeInsets.zero,
             children: <Widget>[
               DrawerHeader(
-                decoration: BoxDecoration(
-                  // color: Colors.white,
-                  
-                ),
                 child: Column(
                   children: <Widget>[
                     emptySpace,
@@ -48,7 +51,7 @@ class DashBoard extends StatelessWidget {
               ),
               ListTile(
                 leading: Icon(Icons.developer_board,),
-                title: Text('DASHBOARD', style: Theme.of(context).textTheme.headline4,)
+                title: Text('DASHBOARD', style: Theme.of(context).textTheme.headline4,),
               ),
               ListTile(
                 leading: Icon(Icons.person,),
