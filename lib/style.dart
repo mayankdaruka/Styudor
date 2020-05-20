@@ -42,3 +42,12 @@ const Body4TextStyle = TextStyle(
   fontSize: BodyTextSize,
   color: Colors.black
 );
+
+// const Body5TextStyle = TextStyle(
+//   fontFamily: FontNameDefault,
+//   fontSize: BodyTextSize,
+//   color: MainColor,
+//   fontWeight: FontWeight.bold,
+// );
+
+const MainColor = Color.fromRGBO(110, 228, 236, 1.0);

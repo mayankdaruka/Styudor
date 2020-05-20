@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
           headline5: Body4TextStyle,
           headline6: Title2TextStyle,
         ),
+        primaryColor: MainColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // home: MyHomePage(title: "This is lit."),

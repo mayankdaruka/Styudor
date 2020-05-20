@@ -68,7 +68,7 @@ class _NewUserInfoState extends State<NewUserInfo> {
   }
 
   void _handleSubmit(BuildContext context) async {
-    if (buttonColor == Color.fromRGBO(110, 228, 236, 1.0)) {
+    if (buttonColor == Theme.of(context).primaryColor) {
       print(_tutor);
       String user = await newUser(_firstNameController.text, _lastNameController.text, this._uid, _zipcodeController.text, _tutor);
       // print(user);
@@ -87,7 +87,6 @@ class _NewUserInfoState extends State<NewUserInfo> {
             width: 300.0,
             height: 45.0,
             child: RaisedButton(
-              // color: Color.fromRGBO(110, 228, 236, 1.0),
               color: buttonColor,
               onPressed: () => this._handleSubmit(context),
               child: Text("CONTINUE", style: Theme.of(context).textTheme.headline2,),

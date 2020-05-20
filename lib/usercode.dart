@@ -50,7 +50,7 @@ class _UserCodeState extends State<UserCode> {
   }
 
   void _handleCodeAuth(BuildContext context) async {
-    if (buttonColor == Color.fromRGBO(110, 228, 236, 1.0)) {
+    if (buttonColor == Theme.of(context).primaryColor) {
       AuthCredential authCreds = PhoneAuthProvider.getCredential(
         verificationId: _verificationID, 
         smsCode: _smsController.text,
