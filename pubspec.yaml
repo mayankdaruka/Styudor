@@ -27,6 +27,7 @@ dependencies:
   firebase_auth: ^0.14.0+5
   http: ^0.12.1
   mask_text_input_formatter: ^1.0.6
+  google_maps_flutter: ^0.5.27+3
 
   # # Add the dependency for the FlutterFire plugin for Google Analytics
   # firebase_analytics: ^5.0.2

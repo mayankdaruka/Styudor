@@ -118,7 +118,9 @@ class _DashBoardState extends State<DashBoard> {
                     _mapIcon = true;
                     _profileIcon = false;
                     _tutorIcon = false;
-                  }) 
+                  }),
+                  Navigator.of(context).pop(),
+                  Navigator.of(context).pushNamed(MapRoute),
                 },
               ),
               ListTile(
@@ -142,7 +144,7 @@ class _DashBoardState extends State<DashBoard> {
                   color: Theme.of(context).primaryColor,
                   elevation: 0.0,
                   onPressed: () => Navigator.of(context).pushReplacementNamed(LoginRoute),
-                  child: Text("LOG OUT", style: Theme.of(context).textTheme.headline4,),
+                  child: Text("Logout", style: Theme.of(context).textTheme.headline6,),
                 ),
               ),
             ],

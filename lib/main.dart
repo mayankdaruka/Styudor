@@ -8,6 +8,7 @@ import 'authentication.dart';
 import 'usercode.dart';
 import 'dashboard.dart';
 import 'newuser_info.dart';
+import 'map.dart';
 
 const LoginRoute = '/';
 const AuthRoute = '/auth';
@@ -15,6 +16,7 @@ const PhoneAuthRoute = '/phoneauth';
 const DashRoute = '/dashboard';
 const NewUserRoute = '/newuser';
 const EnterInfoRoute = '/enterinfo';
+const MapRoute = '/map';
 
 void main() {
   runApp(MyApp());
@@ -65,6 +67,9 @@ class MyApp extends StatelessWidget {
           break;
         case NewUserRoute:
           screen = NewUserInfo(arguments['userId']);
+          break;
+        case MapRoute:
+          screen = Maps();
           break;
         default:
           return null;
