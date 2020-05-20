@@ -23,12 +23,13 @@ class DashBoard extends StatelessWidget {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                // color: Colors.white,
+                
               ),
               child: Text(
                 'Drawer Header',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 24.0,
                 ),
               ),
@@ -36,6 +37,7 @@ class DashBoard extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.developer_board),
               title: Text('DASHBOARD'),
+              
             ),
             ListTile(
               leading: Icon(Icons.book),
