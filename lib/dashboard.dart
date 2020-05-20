@@ -12,16 +12,49 @@ class DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Column(
-            children: <Widget>[
-              SizedBox(
-                height: 40.0,
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
               ),
-              Text(_user['firstname']),
-            ],
-          )
+              child: Text(
+                'Drawer Header',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24.0,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.developer_board),
+              title: Text('DASHBOARD'),
+            ),
+            ListTile(
+              leading: Icon(Icons.book),
+              title: Text('FIND A TUTOR'),
+            ),
+            ListTile(
+              leading: Icon(Icons.map),
+              title: Text('MAP'),
+            ),
+            ListTile(
+              leading: Icon(Icons.question_answer),
+              title: Text('HOW IT WORKS'),
+            ),
+          ],
+        ),
+      ),
+      body: Column(
+        children: <Widget>[
+          Text(_user['firstname']),
         ],
       ),
     );
