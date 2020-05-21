@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
           screen = NewUserInfo(arguments['userId']);
           break;
         case MapRoute:
-          screen = Maps();
+          screen = Maps(arguments['userId']);
           break;
         default:
           return null;

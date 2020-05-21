@@ -11,25 +11,25 @@ class AppDrawer extends StatefulWidget {
 }
 
 class _AppDrawerState extends State<AppDrawer> {
-  bool _dashboardIcon;
-  bool _profileIcon;
-  bool _tutorIcon;
-  bool _mapIcon;
-  bool _helpIcon;
+  // bool _dashboardIcon;
+  // bool _profileIcon;
+  // bool _tutorIcon;
+  // bool _mapIcon;
+  // bool _helpIcon;
   final _user;
 
   _AppDrawerState(this._user);
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _dashboardIcon = true;
-    _profileIcon = false;
-    _tutorIcon = false;
-    _mapIcon = false;
-    _helpIcon = false;
-  }
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   _dashboardIcon = true;
+  //   _profileIcon = false;
+  //   _tutorIcon = false;
+  //   _mapIcon = false;
+  //   _helpIcon = false;
+  // }
   final emptySpace = SizedBox(
     height: 80.0,
   );
@@ -60,73 +60,73 @@ class _AppDrawerState extends State<AppDrawer> {
             ListTile(
               leading: Icon(Icons.developer_board,),
               title: Text('DASHBOARD', style: Theme.of(context).textTheme.headline4,),
-              selected: _dashboardIcon,
+              // selected: _dashboardIcon,
               onTap: () => { 
-                setState(() {
-                  _dashboardIcon = true;
-                  _helpIcon = false;
-                  _mapIcon = false;
-                  _profileIcon = false;
-                  _tutorIcon = false;
-                }) 
+                // setState(() {
+                //   _dashboardIcon = true;
+                //   _helpIcon = false;
+                //   _mapIcon = false;
+                //   _profileIcon = false;
+                //   _tutorIcon = false;
+                // }) 
               },
             ),
             ListTile(
               leading: Icon(Icons.person,),
               title: Text('PROFILE', style: Theme.of(context).textTheme.headline4,),
-              selected: _profileIcon,
+              // selected: _profileIcon,
               onTap: () => { 
-                setState(() {
-                  _dashboardIcon = false;
-                  _helpIcon = false;
-                  _mapIcon = false;
-                  _profileIcon = true;
-                  _tutorIcon = false;
-                }) 
+                // setState(() {
+                //   _dashboardIcon = false;
+                //   _helpIcon = false;
+                //   _mapIcon = false;
+                //   _profileIcon = true;
+                //   _tutorIcon = false;
+                // }) 
               },
             ),
             ListTile(
               leading: Icon(Icons.book,),
               title: Text('FIND A TUTOR', style: Theme.of(context).textTheme.headline4,),
-              selected: _tutorIcon,
+              // selected: _tutorIcon,
               onTap: () => { 
-                setState(() {
-                  _dashboardIcon = false;
-                  _helpIcon = false;
-                  _mapIcon = false;
-                  _profileIcon = false;
-                  _tutorIcon = true;
-                }) 
+                // setState(() {
+                //   _dashboardIcon = false;
+                //   _helpIcon = false;
+                //   _mapIcon = false;
+                //   _profileIcon = false;
+                //   _tutorIcon = true;
+                // }) 
               },
             ),
             ListTile(
               leading: Icon(Icons.map,),
               title: Text('MAP', style: Theme.of(context).textTheme.headline4,),
-              selected: _mapIcon,
+              // selected: _mapIcon,
               onTap: () => { 
-                setState(() {
-                  _dashboardIcon = false;
-                  _helpIcon = false;
-                  _mapIcon = true;
-                  _profileIcon = false;
-                  _tutorIcon = false;
-                }),
+                // setState(() {
+                //   _dashboardIcon = false;
+                //   _helpIcon = false;
+                //   _mapIcon = true;
+                //   _profileIcon = false;
+                //   _tutorIcon = false;
+                // }),
                 Navigator.of(context).pop(),
-                Navigator.of(context).pushNamed(MapRoute),
+                Navigator.of(context).pushNamed(MapRoute, arguments: {'userId' : _user}),
               },
             ),
             ListTile(
               leading: Icon(Icons.question_answer,),
               title: Text('HOW IT WORKS', style: Theme.of(context).textTheme.headline4,),
-              selected: _helpIcon,
+              // selected: _helpIcon,
               onTap: () => { 
-                setState(() {
-                  _dashboardIcon = false;
-                  _helpIcon = true;
-                  _mapIcon = false;
-                  _profileIcon = false;
-                  _tutorIcon = false;
-                }) 
+                // setState(() {
+                //   _dashboardIcon = false;
+                //   _helpIcon = true;
+                //   _mapIcon = false;
+                //   _profileIcon = false;
+                //   _tutorIcon = false;
+                // }) 
               },
             ),
             emptySpace,

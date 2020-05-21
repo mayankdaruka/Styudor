@@ -14,28 +14,18 @@ class DashBoard extends StatefulWidget {
 
 class _DashBoardState extends State<DashBoard> {
   final _user;
-  bool _dashboardIcon;
-  bool _profileIcon;
-  bool _tutorIcon;
-  bool _mapIcon;
-  bool _helpIcon;
 
   _DashBoardState(this._user);
+
+  final emptySpace = SizedBox(
+    height: 80.0,
+  );
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _dashboardIcon = true;
-    _profileIcon = false;
-    _tutorIcon = false;
-    _mapIcon = false;
-    _helpIcon = false;
   }
-
-  final emptySpace = SizedBox(
-    height: 80.0,
-  );
   
   @override
   Widget build(BuildContext context) {
