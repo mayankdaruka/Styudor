@@ -68,7 +68,9 @@ class _AppDrawerState extends State<AppDrawer> {
                 //   _mapIcon = false;
                 //   _profileIcon = false;
                 //   _tutorIcon = false;
-                // }) 
+                // })
+                Navigator.of(context).pop(),
+                Navigator.of(context).pushNamed(DashRoute, arguments: {'userId' : _user}),
               },
             ),
             ListTile(
